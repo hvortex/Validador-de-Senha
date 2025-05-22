@@ -19,6 +19,10 @@ public class ValidadorSenha {
             erros.add("A senha deve conter pelo menos uma letra maiuscula");
         }
 
+        if (senha.chars().noneMatch(c -> "!@#$%^&*()-_=+[]{}|;:'\",.<>?/\\`~".indexOf(c) >= 0)) {
+            erros.add("A senha deve conter pelo menos um caractere especial");
+        }
+
         return new ResultadoValidacao(erros.isEmpty(), erros);
     }
 }
