@@ -4,9 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ValidadorSenhaTest {
 
     @Test
-    public void testSenhaComMenosDe8Caracteres_DeveRetornarErro() {
-        ResultadoValidacao resultado = ValidadorSenha.validarSenha("Ab1!");
+    public void deveDetectarFaltaDeCaractereEspecial() {
+        ResultadoValidacao resultado = ValidadorSenha.validar("Abc12345");
         assertFalse(resultado.isValida());
-        assertTrue(resultado.getErros().contains("A senha deve ter pelo menos 8 caracteres"));
+        assertTrue(resultado.getErros().contains("A senha deve conter pelo menos um caractere especial"));
     }
 }
